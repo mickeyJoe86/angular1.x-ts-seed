@@ -2,8 +2,12 @@ const heroes = {
 	bindings: {
 		hero: '<'
 	},
-	template: "<hero><h1>{{ $ctrl.name }}</h1?</hero>",
-	controller: function herosController() { 
+	template: `
+		<hero>
+			<h1>{{ $ctrl.name }}</h1>
+		</hero>
+	`,
+	controller() { 
 		this.name = "Test";
 	},
 	controllerAs: "$ctrl"
