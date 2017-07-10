@@ -1,0 +1,9 @@
+{
+    "include": [
+        "src/app.ts"
+    ],
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5"
+    }
+}
