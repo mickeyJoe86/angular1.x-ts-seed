@@ -1,13 +1,12 @@
-var gulp = require('gulp');
-var browserify = require('browserify');
-var source = require('vinyl-source-stream');
-var tsify = require('tsify');
-var sourcemaps = require('gulp-sourcemaps');
-var buffer = require('vinyl-buffer');
+const gulp = require('gulp');
+const browserify = require('browserify');
+const source = require('vinyl-source-stream');
+const tsify = require('tsify');
+const sourcemaps = require('gulp-sourcemaps');
+const buffer = require('vinyl-buffer');
+const uglify = require('gulp-uglify');
 
-
-
-gulp.task('default', function () {
+gulp.task('default', () => {
     return browserify({
         basedir: '.',
         debug: true,
@@ -24,17 +23,7 @@ gulp.task('default', function () {
     .pipe(source('bundle.js'))
     .pipe(buffer())
     .pipe(sourcemaps.init({loadMaps: true}))
+    .pipe(uglify())
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('dist'));
 });
-
-// const gulp = require("gulp");
-// const ts = require("gulp-typescript");
-// const tsProject = ts.createProject("tsconfig.json");
-
-// gulp.task("default", function () {
-//     return tsProject.src()
-//         .pipe(tsProject())
-//         .js.pipe(gulp.dest("dist"));
-// });
-// //transpile concat and minify ts into one bundle
