@@ -1,17 +1,5 @@
-const heroes = {
-	bindings: {
-		hero: '<'
-	},
-	template: `
-		<hero>
-			<h1>{{ $ctrl.name }}</h1>
-		</hero>
-	`,
-	controller() { 
-		this.name = "Test";
-	},
-	controllerAs: "$ctrl"
-};
+import * as angular from 'angular';
+import heroes from './components/heroes';
 
 var module = angular.module("mySuperAwesomeApp", [])
 	.component('heroes', heroes);
